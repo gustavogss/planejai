@@ -9,6 +9,7 @@
 - Typescript
 - Tailwind
 - Gemini
+- Lucide React
 
 ## Como utilizar
 

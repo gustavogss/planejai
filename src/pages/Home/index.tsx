@@ -1,7 +1,11 @@
+import { SimulationForm } from '@/components/features/Simulation/Form'
+import { SimulationHero } from '@/components/features/Simulation/Hero'
+
 export default function Home() {
   return (
-    <>
-      <h1>Formulário da Simulação</h1>
-    </>
+    <main className="mx-auto max-w-xl px-4 py-10 sm:py-14">
+      <SimulationHero />
+      <SimulationForm />
+    </main>
   )
 }

@@ -1,4 +1,4 @@
-# Finexia
+# PaneJAI
 
 - Educador Financeiro Inteligente
 

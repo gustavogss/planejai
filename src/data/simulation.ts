@@ -7,6 +7,8 @@ import {
   Wallet,
 } from 'lucide-react'
 
+import type { FormStepProps } from '@/components/features/Simulation/FormSteps'
+
 export const simulationFormSteps = [
   {
     id: 'income',
@@ -82,4 +84,9 @@ export const simulationFormSteps = [
       emojiIcon: '✨',
     },
   },
-]
+] satisfies FormStepProps[]
+
+export type SimulationFormData = Record<
+  (typeof simulationFormSteps)[number]['id'],
+  string
+>

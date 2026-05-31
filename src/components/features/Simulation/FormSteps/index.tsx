@@ -18,7 +18,7 @@ export interface FormStepProps {
 }
 
 interface ActionsBUttonsProps {
-  onNext: () => void
+  onNext: (value: string) => void
   onBack: () => void
   hideBackButton?: boolean
 }
@@ -36,7 +36,7 @@ export function FormStep({
   const handleSubmit = (e: SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault()
     if (!inputValue) return
-    onNext()
+    onNext(inputValue)
   }
   const [inputValue, setInputValue] = useState('')
   return (

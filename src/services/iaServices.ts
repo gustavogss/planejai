@@ -26,6 +26,14 @@ export interface InsightData {
   motivation: {
     content: string
   }
+  mentorChat?: MentorChatMessage[]
+}
+
+export interface MentorChatMessage {
+  id: string
+  role: 'user' | 'mentor'
+  content: string
+  createdAt: string
 }
 
 const API_KEY = String(import.meta.env.VITE_GEMINI_API_KEY)
@@ -52,4 +60,9 @@ export const getInsight = async (prompt: string) => {
   const response = await callGeminiAPI(prompt)
   const json = response.candidates[0].content.parts[0].text
   return JSON.parse(json) as InsightData
+}
+
+export const getMentorAnswer = async (prompt: string) => {
+  const response = await callGeminiAPI(prompt)
+  return response.candidates[0].content.parts[0].text.trim()
 }

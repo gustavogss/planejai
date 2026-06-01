@@ -10,7 +10,6 @@ import { useParams } from 'react-router-dom'
 
 import { AIInsightsCard } from '@/components/features/Simulation/AIInsightsCard'
 import { Card } from '@/components/features/Simulation/Cards'
-import { PageHero } from '@/components/shared/PageHero'
 import { useSimulationStorage } from '@/hooks/useSimulatorStorage'
 import { calcMonthlySavings } from '@/utils/simulation'
 
@@ -28,10 +27,14 @@ export function Result() {
 
   return (
     <main className="mx-auto max-w-6xl px-4 py-10 sm:py-14">
-      <PageHero
-        title="Resultado da sua simulação"
-        subtitle="Com base no seu perfil financeiro e objetivos."
-      />
+      <div className="mt-12 mb-8 text-center">
+        <h1 className="text-foreground text-2xl font-semibold sm:text-4xl">
+          Resultado da sua simulação
+        </h1>
+        <p className="text-muted-foreground mt-2 mb-2 text-sm">
+          Com base no seu perfil financeiro e objetivos.
+        </p>
+      </div>
       <div className="mb-6 grid grid-cols-1 gap-4 lg:grid-cols-3">
         <Card
           icon={Goal}

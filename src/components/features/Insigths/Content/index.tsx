@@ -14,7 +14,7 @@ function Paragraph({ children }: PropsWithChildren) {
 
 function SectionTitle({ children }: PropsWithChildren) {
   return (
-    <h3 className="text-foreground mt-5 mb-1.5 text-sm leading-relaxed font-semibold">
+    <h3 className="text-foreground mt-10 mb-1.5 text-sm leading-relaxed font-semibold">
       {children}
     </h3>
   )

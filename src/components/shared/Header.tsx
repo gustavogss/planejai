@@ -9,7 +9,7 @@ export function Header() {
   const navigate = useNavigate()
   const { theme, toggleTheme } = useTheme()
   return (
-    <header className="border-b border-(--border) px-6 py-3">
+    <header className="rigth-0 bg-background fixed top-0 left-0 z-10 w-full border-b border-(--border) px-6 py-3">
       <nav className="flex items-center justify-between">
         <div className="flex items-center gap-2">
           <div className="bg-primary flex h-9 w-9 items-center justify-center rounded-full">

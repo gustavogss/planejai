@@ -8,6 +8,7 @@ import {
 } from 'lucide-react'
 
 import type { FormStepProps } from '@/components/features/Simulation/FormSteps'
+import type { InsightData } from '@/services/iaServices'
 
 export const simulationFormSteps = [
   {
@@ -91,4 +92,7 @@ export type SimulationFormData = Record<
   string
 >
 
-export type SimulationRecord = SimulationFormData & { id: string }
+export type SimulationRecord = SimulationFormData & {
+  id: string
+  insight?: InsightData
+}

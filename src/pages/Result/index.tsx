@@ -8,6 +8,7 @@ import {
 } from 'lucide-react'
 import { useParams } from 'react-router-dom'
 
+import { AIInsightsCard } from '@/components/features/Simulation/AIInsightsCard'
 import { Card } from '@/components/features/Simulation/Cards'
 import { PageHero } from '@/components/shared/PageHero'
 import { useSimulationStorage } from '@/hooks/useSimulatorStorage'
@@ -53,7 +54,7 @@ export function Result() {
         />
       </div>
       <div className="grid gap-6 lg:grid-cols-3">
-        {/* <AIInsightsCard simulationId={data.id} /> */}
+        <AIInsightsCard simulationId={data.id} />
         <div className="order-1 flex flex-col gap-6 lg:order-2">
           <Card
             icon={Wallet}

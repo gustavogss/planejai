@@ -11,12 +11,14 @@ A experiência guia o usuário por um formulário simples sobre renda, gastos, d
 - Cálculo da economia mensal disponível com base em renda, custos fixos e dívidas.
 - Tela de resultado com cartões de resumo da meta, prazo, renda, despesas e economia necessária.
 - Geração de insights financeiros personalizados com Gemini.
+- Conversa com mentor financeiro baseada no insight personalizado gerado.
 - Persistência das simulações no `localStorage`.
 - Reaproveitamento de insights já gerados para uma simulação salva.
 - Estado de carregamento com skeleton durante a geração da análise.
 - Tratamento de erro com opção para tentar gerar o insight novamente.
 - Tema claro e escuro com preferência salva localmente.
 - Navegação entre nova simulação, resultado e histórico.
+- Página de erro para rotas não encontradas.
 
 ## Tecnologias
 
@@ -60,7 +62,8 @@ src/
 | `/`              | Inicia uma nova simulação financeira.                     |
 | `/resultado/:id` | Exibe o resultado da simulação salva e os insights de IA. |
 | `/resultado`     | Redireciona para a página inicial.                        |
-| `/historico`     | Página reservada para histórico de simulações.            |
+| `/historico`     | Exibe o histórico de simulações salvas localmente.        |
+| `*`              | Exibe a página de erro para rotas não encontradas.        |
 
 ## Como Executar
 
@@ -85,6 +88,8 @@ VITE_GEMINI_API_KEY=sua_chave_do_gemini
 ```
 
 A integração utiliza o modelo `gemini-flash-latest` através da API `generativelanguage.googleapis.com`.
+
+Você também pode usar o arquivo `.env.example` como referência para configurar as variáveis necessárias.
 
 ### Ambiente de Desenvolvimento
 
@@ -133,11 +138,23 @@ pnpm preview
 - As simulações são armazenadas localmente no navegador. Limpar os dados do navegador remove o histórico salvo.
 - A página de histórico já possui rota e entrada no menu, mas ainda está preparada para evolução da funcionalidade.
 
-## Deploy
+## Deploy na Vercel
 
-O projeto gera arquivos estáticos com Vite e pode ser publicado em plataformas como Vercel, Netlify, Cloudflare Pages, GitHub Pages ou qualquer servidor capaz de servir a pasta `dist`.
+O projeto está preparado para deploy na Vercel como uma aplicação Vite/React estática.
 
-Antes do deploy, configure a variável de ambiente `VITE_GEMINI_API_KEY` na plataforma escolhida e execute:
+O arquivo `vercel.json` define:
+
+- `buildCommand`: `pnpm build`
+- `outputDirectory`: `dist`
+- `rewrites`: redireciona rotas do React Router para `index.html`, evitando erro 404 ao acessar URLs como `/historico` ou `/resultado/:id` diretamente.
+
+Antes do deploy, configure a variável de ambiente abaixo no painel da Vercel:
+
+```env
+VITE_GEMINI_API_KEY=sua_chave_do_gemini
+```
+
+Para validar localmente antes de subir:
 
 ```bash
 pnpm build

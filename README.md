@@ -159,3 +159,7 @@ Para validar localmente antes de subir:
 ```bash
 pnpm build
 ```
+
+## Testar a aplicação:
+
+[PlanejAI](https://planejai-one.vercel.app/)
